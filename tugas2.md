@@ -297,4 +297,24 @@ magnetic tape, which was carried into the machine room, where it was mounted on
 a tape drive. The operator then loaded a special program (the ancestor of today’s
 operating system), which read the first job from tape and ran it. The output was
 written onto a second tape, instead of being printed. After each job finished, the
-operating system automatically read the next job from the tape and began running
+operating system automatically read the next job from the tape and began running it. When the whole batch was done, the operator removed the input and output
+tapes, replaced the input tape with the next batch, and brought the output tape to a
+1401 for printing **off line** (i.e., not connected to the main computer).
+
+
+<img src="https://raw.githubusercontent.com/ReyhanNadie/Tugas_Sistem_Operasi/TUGAS-2/fig1-3.PNG">
+
+<br>
+
+The structure of a typical input job is shown in Fig. 1-4. It started out with a
+$JOB card, specifying the maximum run time in minutes, the account number to be
+charged, and the programmer’s name. Then came a $FORTRAN card, telling the
+operating system to load the FORTRAN compiler from the system tape. It was directly followed by the program to be compiled, and then a $LOAD card, directing
+the operating system to load the object program just compiled. (Compiled programs were often written on scratch tapes and had to be loaded explicitly.) Next
+came the $RUN card, telling the operating system to run the program with the data
+following it. Finally, the $END card marked the end of the job. These primitive
+control cards were the forerunners of modern shells and command-line interpreters.
+
+Large second-generation computers were used mostly for scientific and engineering calculations, such as solving the partial differential equations that often occur in physics and engineering. They were largely programmed in FORTRAN and
+assembly language. Typical operating systems were FMS (the Fortran Monitor
+System) and IBSYS, IBM’s operating system for the 7094.
