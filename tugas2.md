@@ -22,6 +22,7 @@ mode and user mode. The operating system, the most fundamental piece of software
 
 ### <p style="text-align: center;">INTRODUCTION</p>
 
+<div style="text-align: justify">
 In this mode it has complete access to all the hardware and can execute any instruction the machine is
 capable of executing. The rest of the software runs in **user mode**, in which only a
 subset of the machine instructions is available. In particular, those instructions that
@@ -50,4 +51,97 @@ Also, in many systems there are programs that run in user mode but help the
 operating system or perform privileged functions. For example, there is often a
 program that allows users to change their passwords. It is not part of the operating
 system and does not run in kernel mode, but it clearly carries out a sensitive function and has to be protected in a special way. In some systems, this idea is carried
-to an extreme, and pieces of what is traditionally considered to be the operating
+to an extreme, and pieces of what is traditionally considered to be the operating system (such as the file system) run in user space. In such systems, it is difficult to
+draw a clear boundary. Everything running in kernel mode is clearly part of the
+operating system, but some programs running outside it are arguably also part of it,
+or at least closely associated with it.
+
+<div style="text-align: center">
+
+## WHAT IS AN OPERATING SYSTEM?
+
+<div style="text-align: justify">
+Operating systems differ from user (i.e., application) programs in ways other
+than where they reside. In particular, they are huge, complex, and long-lived. The
+source code of the heart of an operating system like Linux or Windows is on the
+order of fiv e million lines of code or more. To conceive of what this means, think
+of printing out fiv e million lines in book form, with 50 lines per page and 1000
+pages per volume (larger than this book). It would take 100 volumes to list an operating system of this size—essentially an entire bookcase. Can you imagine getting a job maintaining an operating system and on the first day having your boss
+bring you to a bookcase with the code and say: ‘‘Go learn that.’’ And this is only
+for the part that runs in the kernel. When essential shared libraries are included,
+Windows is well over 70 million lines of code or 10 to 20 bookcases. And this
+excludes basic application software (things like Windows Explorer, Windows
+Media Player, and so on).
+
+It should be clear now why operating systems live a long time—they are very
+hard to write, and having written one, the owner is loath to throw it out and start
+again. Instead, such systems evolve over long periods of time. Windows 95/98/Me
+was basically one operating system and Windows NT/2000/XP/Vista/Windows 7 is
+a different one. They look similar to the users because Microsoft made very sure
+that the user interface of Windows 2000/XP/Vista/Windows 7 was quite similar to
+that of the system it was replacing, mostly Windows 98. Nevertheless, there were
+very good reasons why Microsoft got rid of Windows 98. We will come to these
+when we study Windows in detail in Chap. 11.
+
+Besides Windows, the other main example we will use throughout this book is
+UNIX and its variants and clones. It, too, has evolved over the years, with versions
+like System V, Solaris, and FreeBSD being derived from the original system,
+whereas Linux is a fresh code base, although very closely modeled on UNIX and
+highly compatible with it. We will use examples from UNIX throughout this book
+and look at Linux in detail in Chap. 10.
+
+
+In this chapter we will briefly touch on a number of key aspects of operating
+systems, including what they are, their history, what kinds are around, some of the
+basic concepts, and their structure. We will come back to many of these important
+topics in later chapters in more detail.
+
+<div style="text align: left">
+
+## **1.1 WHAT IS AN OPERATING SYSTEM?**
+
+<div style="text align: justify">
+
+It is hard to pin down what an operating system is other than saying it is the
+software that runs in kernel mode—and even that is not always true. Part of the
+problem is that operating systems perform two essentially unrelated functions:
+providing application programmers (and application programs, naturally) a clean
+abstract set of resources instead of the messy hardware ones and managing these
+hardware resources. Depending on who is doing the talking, you might hear mostly
+about one function or the other. Let us now look at both.
+
+<div style="text align: left">
+
+### **1.1.1 The Operating System as an Extended Machine**
+
+<div style="text align: justify">
+
+The **architecture** (instruction set, memory organization, I/O, and bus structure) of most computers at the machine-language level is primitive and awkward to
+program, especially for input/output. To make this point more concrete, consider
+modern **SATA (Serial ATA)** hard disks used on most computers. A book (Anderson, 2007) describing an early version of the interface to the disk—what a programmer would have to know to use the disk—ran over 450 pages. Since then, the
+interface has been revised multiple times and is more complicated than it was in
+2007. Clearly, no sane programmer would want to deal with this disk at the hardware level. Instead, a piece of software, called a **disk driver**, deals with the hardware and provides an interface to read and write disk blocks, without getting into
+the details. Operating systems contain many drivers for controlling I/O devices.
+
+But even this level is much too low for most applications. For this reason, all
+operating systems provide yet another layer of abstraction for using disks: files.
+Using this abstraction, programs can create, write, and read files, without having to
+deal with the messy details of how the hardware actually works.
+This abstraction is the key to managing all this complexity. Good abstractions
+turn a nearly impossible task into two manageable ones. The first is defining and
+implementing the abstractions. The second is using these abstractions to solve the
+problem at hand. One abstraction that almost every computer user understands is
+the file, as mentioned above. It is a useful piece of information, such as a digital
+photo, saved email message, song, or Web page. It is much easier to deal with photos, emails, songs, and Web pages than with the details of SATA (or other) disks.
+The job of the operating system is to create good abstractions and then implement
+and manage the abstract objects thus created. In this book, we will talk a lot about
+abstractions. They are one of the keys to understanding operating systems.
+This point is so important that it is worth repeating in different words. With all
+due respect to the industrial engineers who so carefully designed the Macintosh,
+hardware is ugly. Real processors, memories, disks, and other devices are very
+complicated and present difficult, awkward, idiosyncratic, and inconsistent interfaces to the people who have to write software to use them. Sometimes this is due
+to the need for backward compatibility with older hardware. Other times it is an
+attempt to save money. Often, however, the hardware designers do not realize (or
+care) how much trouble they are causing for the software. One of the major tasks
+of the operating system is to hide the hardware and present programs (and their
+programmers) with nice, clean, elegant, consistent, abstractions to work with instead. Operating systems turn the ugly into the beautiful, as shown in Fig. 1-2
