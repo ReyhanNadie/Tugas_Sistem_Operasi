@@ -318,3 +318,77 @@ control cards were the forerunners of modern shells and command-line interpreter
 Large second-generation computers were used mostly for scientific and engineering calculations, such as solving the partial differential equations that often occur in physics and engineering. They were largely programmed in FORTRAN and
 assembly language. Typical operating systems were FMS (the Fortran Monitor
 System) and IBSYS, IBM’s operating system for the 7094.
+
+<br>
+
+### **1.2.3 The Third Generation (1965–1980): ICs and Multiprogramming**
+<br>
+
+By the early 1960s, most computer manufacturers had two distinct, incompatible, product lines. On the one hand, there were the word-oriented, large-scale scientific computers, such as the 7094, which were used for industrial-strength numerical calculations in science and engineering. On the other hand, there were the
+character-oriented, commercial computers, such as the 1401, which were widely
+used for tape sorting and printing by banks and insurance companies.
+
+<img src="https://raw.githubusercontent.com/ReyhanNadie/Tugas_Sistem_Operasi/TUGAS-2/fig1-4.PNG">
+
+
+Developing and maintaining two completely different product lines was an expensive proposition for the manufacturers. In addition, many new computer customers initially needed a small machine but later outgrew it and wanted a bigger
+machine that would run all their old programs, but faster.
+IBM attempted to solve both of these problems at a single stroke by introducing the System/360. The 360 was a series of software-compatible machines ranging from 1401-sized models to much larger ones, more powerful than the mighty
+7094. The machines differed only in price and performance (maximum memory,
+processor speed, number of I/O devices permitted, and so forth). Since they all had
+the same architecture and instruction set, programs written for one machine could
+run on all the others—at least in theory. (But as Yogi Berra reputedly said: ‘‘In
+theory, theory and practice are the same; in practice, they are not.’’) Since the 360
+was designed to handle both scientific (i.e., numerical) and commercial computing,
+a single family of machines could satisfy the needs of all customers. In subsequent
+years, IBM came out with backward compatible successors to the 360 line, using
+more modern technology, known as the 370, 4300, 3080, and 3090. The zSeries is
+the most recent descendant of this line, although it has diverged considerably from
+the original.
+The IBM 360 was the first major computer line to use (small-scale) ICs (Integrated Circuits), thus providing a major price/performance advantage over the
+second-generation machines, which were built up from individual transistors. It was an immediate success, and the idea of a family of compatible computers was
+soon adopted by all the other major manufacturers. The descendants of these machines are still in use at computer centers today. Now adays they are often used for
+managing huge databases (e.g., for airline reservation systems) or as servers for
+World Wide Web sites that must process thousands of requests per second.
+
+
+The greatest strength of the ‘‘single-family’’ idea was simultaneously its greatest weakness. The original intention was that all software, including the operating
+system, **OS/360**, had to work on all models. It had to run on small systems, which
+often just replaced 1401s for copying cards to tape, and on very large systems,
+which often replaced 7094s for doing weather forecasting and other heavy computing. It had to be good on systems with few peripherals and on systems with many
+peripherals. It had to work in commercial environments and in scientific environments. Above all, it had to be efficient for all of these different uses.
+There was no way that IBM (or anybody else for that matter) could write a
+piece of software to meet all those conflicting requirements. The result was an
+enormous and extraordinarily complex operating system, probably two to three
+orders of magnitude larger than FMS. It consisted of millions of lines of assembly
+language written by thousands of programmers, and contained thousands upon
+thousands of bugs, which necessitated a continuous stream of new releases in an
+attempt to correct them. Each new release fixed some bugs and introduced new
+ones, so the number of bugs probably remained constant over time.
+
+
+One of the designers of OS/360, Fred Brooks, subsequently wrote a witty and
+incisive book (Brooks, 1995) describing his experiences with OS/360. While it
+would be impossible to summarize the book here, suffice it to say that the cover
+shows a herd of prehistoric beasts stuck in a tar pit. The cover of Silberschatz et al.
+(2012) makes a similar point about operating systems being dinosaurs.
+Despite its enormous size and problems, OS/360 and the similar third-generation operating systems produced by other computer manufacturers actually satisfied most of their customers reasonably well. They also popularized several key
+techniques absent in second-generation operating systems. Probably the most important of these was **multiprogramming**. On the 7094, when the current job
+paused to wait for a tape or other I/O operation to complete, the CPU simply sat
+idle until the I/O finished. With heavily CPU-bound scientific calculations, I/O is
+infrequent, so this wasted time is not significant. With commercial data processing,
+the I/O wait time can often be 80 or 90% of the total time, so something had to be
+done to avoid having the (expensive) CPU be idle so much.
+
+
+The solution that evolved was to partition memory into several pieces, with a
+different job in each partition, as shown in Fig. 1-5. While one job was waiting for
+I/O to complete, another job could be using the CPU. If enough jobs could be held
+in main memory at once, the CPU could be kept busy nearly 100% of the time.
+Having multiple jobs safely in memory at once requires special hardware to protect
+each job against snooping and mischief by the other ones, but the 360 and other
+third-generation systems were equipped with this hardware.
+
+
+
+
