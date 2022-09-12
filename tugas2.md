@@ -145,3 +145,156 @@ attempt to save money. Often, however, the hardware designers do not realize (or
 care) how much trouble they are causing for the software. One of the major tasks
 of the operating system is to hide the hardware and present programs (and their
 programmers) with nice, clean, elegant, consistent, abstractions to work with instead. Operating systems turn the ugly into the beautiful, as shown in Fig. 1-2
+
+<img src="https://raw.githubusercontent.com/ReyhanNadie/Tugas_Sistem_Operasi/TUGAS-2/fig1-2.PNG">
+
+It should be noted that the operating system’s real customers are the application programs (via the application programmers, of course). They are the ones
+who deal directly with the operating system and its abstractions. In contrast, end
+users deal with the abstractions provided by the user interface, either a command-line shell or a graphical interface. While the abstractions at the user interface
+may be similar to the ones provided by the operating system, this is not always the
+case. To make this point clearer, consider the normal Windows desktop and the
+line-oriented command prompt. Both are programs running on the Windows operating system and use the abstractions Windows provides, but they offer very different user interfaces. Similarly, a Linux user running Gnome or KDE sees a very
+different interface than a Linux user working directly on top of the underlying X
+Window System, but the underlying operating system abstractions are the same in
+both cases.
+
+In this book, we will study the abstractions provided to application programs in
+great detail, but say rather little about user interfaces. That is a large and important
+subject, but one only peripherally related to operating systems.
+
+<div style="text align: left">
+
+### **1.1.1 The Operating System as an Resources Manager**
+
+<div style="text align: justify">
+
+The concept of an operating system as primarily providing abstractions to application programs is a top-down view. An alternative, bottom-up, view holds that
+the operating system is there to manage all the pieces of a complex system. Modern computers consist of processors, memories, timers, disks, mice, network interfaces, printers, and a wide variety of other devices. In the bottom-up view, the job
+of the operating system is to provide for an orderly and controlled allocation of the
+processors, memories, and I/O devices among the various programs wanting them.
+Modern operating systems allow multiple programs to be in memory and run
+at the same time. Imagine what would happen if three programs running on some
+computer all tried to print their output simultaneously on the same printer. The first few lines of printout might be from program 1, the next few from program 2, then
+some from program 3, and so forth. The result would be utter chaos. The operating
+system can bring order to the potential chaos by buffering all the output destined
+for the printer on the disk. When one program is finished, the operating system can
+then copy its output from the disk file where it has been stored for the printer,
+while at the same time the other program can continue generating more output,
+oblivious to the fact that the output is not really going to the printer (yet).
+
+When a computer (or network) has more than one user, the need for managing
+and protecting the memory, I/O devices, and other resources is even more since the
+users might otherwise interfere with one another. In addition, users often need to
+share not only hardware, but information (files, databases, etc.) as well. In short,
+this view of the operating system holds that its primary task is to keep track of
+which programs are using which resource, to grant resource requests, to account
+for usage, and to mediate conflicting requests from different programs and users.
+
+Resource management includes **multiplexing** (sharing) resources in two different ways: in time and in space. When a resource is time multiplexed, different
+programs or users take turns using it. First one of them gets to use the resource,
+then another, and so on. For example, with only one CPU and multiple programs
+that want to run on it, the operating system first allocates the CPU to one program,
+then, after it has run long enough, another program gets to use the CPU, then another, and then eventually the first one again. Determining how the resource is time
+multiplexed—who goes next and for how long—is the task of the operating system. Another example of time multiplexing is sharing the printer. When multiple
+print jobs are queued up for printing on a single printer, a decision has to be made
+about which one is to be printed next.
+
+
+The other kind of multiplexing is space multiplexing. Instead of the customers
+taking turns, each one gets part of the resource. For example, main memory is normally divided up among several running programs, so each one can be resident at
+the same time (for example, in order to take turns using the CPU). Assuming there
+is enough memory to hold multiple programs, it is more efficient to hold several
+programs in memory at once rather than give one of them all of it, especially if it
+only needs a small fraction of the total. Of course, this raises issues of fairness,
+protection, and so on, and it is up to the operating system to solve them. Another
+resource that is space multiplexed is the disk. In many systems a single disk can
+hold files from many users at the same time. Allocating disk space and keeping
+track of who is using which disk blocks is a typical operating system task.
+
+<div style="text align: left">
+
+## **1.2 HISTORY OF OPERATION SYSTEM**
+
+<div style="text align: justify">
+
+Operating systems have been evolving through the years. In the following sections we will briefly look at a few of the highlights. Since operating systems have
+historically been closely tied to the architecture of the computers on which they run, we will look at successive generations of computers to see what their operating systems were like. This mapping of operating system generations to computer
+generations is crude, but it does provide some structure where there would otherwise be none.
+
+The progression given below is largely chronological, but it has been a bumpy
+ride. Each development did not wait until the previous one nicely finished before
+getting started. There was a lot of overlap, not to mention many false starts and
+dead ends. Take this as a guide, not as the last word.
+
+As an interesting historical aside, Babbage realized that he would need software for his analytical engine, so he hired a young woman named Ada Lovelace,
+who was the daughter of the famed British poet Lord Byron, as the world’s first
+programmer. The programming language Ada® is named after her.
+
+
+### **1.2.1 The First Generation (1945–55): Vacuum Tubes**
+
+
+After Babbage’s unsuccessful efforts, little progress was made in constructing
+digital computers until the World War II period, which stimulated an explosion of
+activity. Professor John Atanasoff and his graduate student Clifford Berry built
+what is now reg arded as the first functioning digital computer at Iowa State University. It used 300 vacuum tubes. At roughly the same time, Konrad Zuse in Berlin
+built the Z3 computer out of electromechanical relays. In 1944, the Colossus was
+built and programmed by a group of scientists (including Alan Turing) at Bletchley
+Park, England, the Mark I was built by Howard Aiken at Harvard, and the ENIAC
+was built by William Mauchley and his graduate student J. Presper Eckert at the
+University of Pennsylvania. Some were binary, some used vacuum tubes, some
+were programmable, but all were very primitive and took seconds to perform even
+the simplest calculation.
+
+
+In these early days, a single group of people (usually engineers) designed,
+built, programmed, operated, and maintained each machine. All programming was
+done in absolute machine language, or even worse yet, by wiring up electrical circuits by connecting thousands of cables to plugboards to control the machine’s
+basic functions. Programming languages were unknown (even assembly language
+was unknown). Operating systems were unheard of. The usual mode of operation
+was for the programmer to sign up for a block of time using the signup sheet on the
+wall, then come down to the machine room, insert his or her plugboard into the
+computer, and spend the next few hours hoping that none of the 20,000 or so vacuum tubes would burn out during the run. Virtually all the problems were simple straightforward mathematical and numerical calculations, such as grinding out
+tables of sines, cosines, and logarithms, or computing artillery trajectories.
+By the early 1950s, the routine had improved somewhat with the introduction
+of punched cards. It was now possible to write programs on cards and read them in
+instead of using plugboards; otherwise, the procedure was the same.
+
+### **1.2.2 The Second Generation (1955–65): Transistors and Batch Systems**
+The introduction of the transistor in the mid-1950s changed the picture radically. Computers became reliable enough that they could be manufactured and sold
+to paying customers with the expectation that they would continue to function long
+enough to get some useful work done. For the first time, there was a clear separation between designers, builders, operators, programmers, and maintenance personnel.
+
+
+These machines, now called mainframes, were locked away in large, specially
+air-conditioned computer rooms, with staffs of professional operators to run them.
+Only large corporations or major government agencies or universities could afford
+the multimillion-dollar price tag. To run a job (i.e., a program or set of programs),
+a programmer would first write the program on paper (in FORTRAN or assembler), then punch it on cards. He would then bring the card deck down to the input
+room and hand it to one of the operators and go drink coffee until the output was
+ready.
+
+
+When the computer finished whatever job it was currently running, an operator
+would go over to the printer and tear off the output and carry it over to the output
+room, so that the programmer could collect it later. Then he would take one of the
+card decks that had been brought from the input room and read it in. If the FORTRAN compiler was needed, the operator would have to get it from a file cabinet
+and read it in. Much computer time was wasted while operators were walking
+around the machine room.
+
+
+Given the high cost of the equipment, it is not surprising that people quickly
+looked for ways to reduce the wasted time. The solution generally adopted was the
+batch system. The idea behind it was to collect a tray full of jobs in the input
+room and then read them onto a magnetic tape using a small (relatively) inexpensive computer, such as the IBM 1401, which was quite good at reading cards,
+copying tapes, and printing output, but not at all good at numerical calculations.
+Other, much more expensive machines, such as the IBM 7094, were used for the
+real computing. This situation is shown in Fig. 1-3.
+
+
+After about an hour of collecting a batch of jobs, the cards were read onto a
+magnetic tape, which was carried into the machine room, where it was mounted on
+a tape drive. The operator then loaded a special program (the ancestor of today’s
+operating system), which read the first job from tape and ran it. The output was
+written onto a second tape, instead of being printed. After each job finished, the
+operating system automatically read the next job from the tape and began running
