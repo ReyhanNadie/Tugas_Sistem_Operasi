@@ -459,5 +459,182 @@ the spirit of the MULTICS design.
 Despite its lack of commercial success, MULTICS had a huge influence on
 subsequent operating systems (especially UNIX and its derivatives, FreeBSD,
 Linux, iOS, and Android). It is described in several papers and a book (Corbato´ et
-al., 1972; Corbato´ and Vyssotsky, 1965; Daley and Dennis, 1968; Organick, 1972;
+al., 1972; Corbato´ and Vyssotsky, 1965; Daley and Dennis, 1968; Organick, 1972;and Saltzer, 1974). It also has an active Website, located at www.multicians.org,
+with much information about the system, its designers, and its users.
+
+
+Another major development during the third generation was the phenomenal
+growth of minicomputers, starting with the DEC PDP-1 in 1961. The PDP-1 had
+only 4K of 18-bit words, but at $120,000 per machine (less than 5% of the price of
+a 7094), it sold like hotcakes. For certain kinds of nonnumerical work, it was almost as fast as the 7094 and gav e birth to a whole new industry. It was quickly followed by a series of other PDPs (unlike IBM’s family, all incompatible) culminating in the PDP-11.
+
+
+One of the computer scientists at Bell Labs who had worked on the MULTICS
+project, Ken Thompson, subsequently found a small PDP-7 minicomputer that no
+one was using and set out to write a stripped-down, one-user version of MULTICS.
+This work later developed into the **UNIX** operating system, which became popular
+in the academic world, with government agencies, and with many companies.
+
+
+The history of UNIX has been told elsewhere (e.g., Salus, 1994). Part of that
+story will be given in Chap. 10. For now, suffice it to say that because the source
+code was widely available, various organizations developed their own (incompatible) versions, which led to chaos. Two major versions developed, **System** V, from
+AT&T, and **BSD (Berkeley Software Distribution)** from the University of California at Berkeley. These had minor variants as well. To make it possible to write
+programs that could run on any UNIX system, IEEE developed a standard for
+UNIX, called **POSIX**, that most versions of UNIX now support. POSIX defines a
+minimal system-call interface that conformant UNIX systems must support. In
+fact, some other operating systems now also support the POSIX interface.
+
+As an aside, it is worth mentioning that in 1987, the author released a small
+clone of UNIX, called **MINIX**, for educational purposes. Functionally, MINIX is
+very similar to UNIX, including POSIX support. Since that time, the original version has evolved into MINIX 3, which is highly modular and focused on very high
+reliability. It has the ability to detect and replace faulty or even crashed modules
+(such as I/O device drivers) on the fly without a reboot and without disturbing running programs. Its focus is on providing very high dependability and availability.
+A book describing its internal operation and listing the source code in an appendix
+is also available (Tanenbaum and Woodhull, 2006). The MINIX 3 system is available for free (including all the source code) over the Internet at www.minix3.org.
+
+
+The desire for a free production (as opposed to educational) version of MINIX
+led a Finnish student, Linus Torvalds, to write **Linux**. This system was directly
+inspired by and developed on MINIX and originally supported various MINIX features (e.g., the MINIX file system). It has since been extended in many ways by
+many people but still retains some underlying structure common to MINIX and to
+UNIX. Readers interested in a detailed history of Linux and the open source
+movement might want to read Glyn Moody’s (2001) book. Most of what will be
+said about UNIX in this book thus applies to System V, MINIX, Linux, and other
+versions and clones of UNIX as well.
+
+<hr>
+
+### **1.2.4 The Fourth Generation (1980-Present): Personal Computers**
+
+<br>
+
+With the development of **LSI (Large Scale Integration)** circuits—chips containing thousands of transistors on a square centimeter of silicon—the age of the
+personal computer dawned. In terms of architecture, personal computers (initially
+called **microcomputers**) were not all that different from minicomputers of the
+PDP-11 class, but in terms of price they certainly were different. Where the
+minicomputer made it possible for a department in a company or university to have
+its own computer, the microprocessor chip made it possible for a single individual
+to have his or her own personal computer.
+
+In 1974, when Intel came out with the 8080, the first general-purpose 8-bit
+CPU, it wanted an operating system for the 8080, in part to be able to test it. Intel
+asked one of its consultants, Gary Kildall, to write one. Kildall and a friend first
+built a controller for the newly released Shugart Associates 8-inch floppy disk and
+hooked the floppy disk up to the 8080, thus producing the first microcomputer with
+a disk. Kildall then wrote a disk-based operating system called **CP/M (Control
+Program for Microcomputers)** for it. Since Intel did not think that disk-based
+microcomputers had much of a future, when Kildall asked for the rights to CP/M,
+Intel granted his request. Kildall then formed a company, Digital Research, to further develop and sell CP/M.
+
+
+In 1977, Digital Research rewrote CP/M to make it suitable for running on the
+many microcomputers using the 8080, Zilog Z80, and other CPU chips. Many application programs were written to run on CP/M, allowing it to completely dominate the world of microcomputing for about 5 years.
+
+
+In the early 1980s, IBM designed the IBM PC and looked around for software
+to run on it. People from IBM contacted Bill Gates to license his BASIC interpreter. They also asked him if he knew of an operating system to run on the PC.
+Gates suggested that IBM contact Digital Research, then the world’s dominant operating systems company. Making what was surely the worst business decision in
+recorded history, Kildall refused to meet with IBM, sending a subordinate instead.
+To make matters even worse, his lawyer even refused to sign IBM’s nondisclosure
+agreement covering the not-yet-announced PC. Consequently, IBM went back to
+Gates asking if he could provide them with an operating system.
+
+
+When IBM came back, Gates realized that a local computer manufacturer,
+Seattle Computer Products, had a suitable operating system, **DOS (Disk Operating System)**. He approached them and asked to buy it (allegedly for $75,000),
+which they readily accepted. Gates then offered IBM a DOS/BASIC package,
+which IBM accepted. IBM wanted certain modifications, so Gates hired the person who wrote DOS, Tim Paterson, as an employee of Gates’ fledgling company,
+Microsoft, to make them. The revised system was renamed **MS-DOS (MicroSoft
+Disk Operating System)** and quickly came to dominate the IBM PC market. A
+key factor here was Gates’ (in retrospect, extremely wise) decision to sell MS-DOS
+to computer companies for bundling with their hardware, compared to Kildall’s attempt to sell CP/M to end users one at a time (at least initially). After all this
+transpired, Kildall died suddenly and unexpectedly from causes that have not been
+fully disclosed.
+
+
+By the time the successor to the IBM PC, the IBM PC/AT, came out in 1983
+with the Intel 80286 CPU, MS-DOS was firmly entrenched and CP/M was on its
+last legs. MS-DOS was later widely used on the 80386 and 80486. Although the
+initial version of MS-DOS was fairly primitive, subsequent versions included more
+advanced features, including many taken from UNIX. (Microsoft was well aware
+of UNIX, even selling a microcomputer version of it called XENIX during the
+company’s early years.)
+
+
+CP/M, MS-DOS, and other operating systems for early microcomputers were
+all based on users typing in commands from the keyboard. That eventually changed due to research done by Doug Engelbart at Stanford Research Institute in the
+1960s. Engelbart invented the Graphical User Interface, complete with windows,
+icons, menus, and mouse. These ideas were adopted by researchers at Xerox PARC
+and incorporated into machines they built.
+
+
+One day, Steve Jobs, who co-invented the Apple computer in his garage, visited PARC, saw a GUI, and instantly realized its potential value, something Xerox
+management famously did not. This strategic blunder of gargantuan proportions
+led to a book entitled Fumbling the Future (Smith and Alexander, 1988). Jobs then
+embarked on building an Apple with a GUI. This project led to the Lisa, which
+was too expensive and failed commercially. Jobs’ second attempt, the Apple Macintosh, was a huge success, not only because it was much cheaper than the Lisa,
+but also because it was **user friendly**, meaning that it was intended for users who
+not only knew nothing about computers but furthermore had absolutely no intention whatsoever of learning. In the creative world of graphic design, professional
+digital photography, and professional digital video production, Macintoshes are
+very widely used and their users are very enthusiastic about them. In 1999, Apple
+adopted a kernel derived from Carnegie Mellon University’s Mach microkernel
+which was originally developed to replace the kernel of BSD UNIX. Thus, **Mac
+OS X** is a UNIX-based operating system, albeit with a very distinctive interface.
+
+
+When Microsoft decided to build a successor to MS-DOS, it was strongly
+influenced by the success of the Macintosh. It produced a GUI-based system called Windows, which originally ran on top of MS-DOS (i.e., it was more like a shell
+than a true operating system). For about 10 years, from 1985 to 1995, Windows
+was just a graphical environment on top of MS-DOS. However, starting in 1995 a
+freestanding version, Windows 95, was released that incorporated many operating
+system features into it, using the underlying MS-DOS system only for booting and
+running old MS-DOS programs. In 1998, a slightly modified version of this system, called Windows 98 was released. Nevertheless, both Windows 95 and Windows 98 still contained a large amount of 16-bit Intel assembly language.
+
+
+Another Microsoft operating system, **Windows NT** (where the NT stands for
+**New Technology**), which was compatible with Windows 95 at a certain level, but a complete rewrite from scratch internally. It was a full 32-bit system. The lead designer for Windows NT was David Cutler, who was also one of the designers of the
+VAX VMS operating system, so some ideas from VMS are present in NT. In fact,
+so many ideas from VMS were present in it that the owner of VMS, DEC, sued
+Microsoft. The case was settled out of court for an amount of money requiring
+many digits to express. Microsoft expected that the first version of NT would kill
+off MS-DOS and all other versions of Windows since it was a vastly superior system, but it fizzled. Only with Windows NT 4.0 did it finally catch on in a big way,
+especially on corporate networks. Version 5 of Windows NT was renamed Windows 2000 in early 1999. It was intended to be the successor to both Windows 98
+and Windows NT 4.0.
+
+
+That did not quite work out either, so Microsoft came out with yet another version of Windows 98 called** Windows Me (Millennium Edition**). In 2001, a
+slightly upgraded version of Windows 2000, called Windows XP was released.
+That version had a much longer run (6 years), basically replacing all previous versions of Windows.
+
+
+Still the spawning of versions continued unabated. After Windows 2000,
+Microsoft broke up the Windows family into a client and a server line. The client
+line was based on XP and its successors, while the server line included Windows
+Server 2003 and Windows 2008. A third line, for the embedded world, appeared a
+little later. All of these versions of Windows forked off their variations in the form
+of **service packs**. It was enough to drive some administrators (and writers of operating systems textbooks) balmy.
+
+
+Then in January 2007, Microsoft finally released the successor to Windows
+XP, called Vista. It came with a new graphical interface, improved security, and
+many new or upgraded user programs. Microsoft hoped it would replace Windows
+XP completely, but it never did. Instead, it received much criticism and a bad press,
+mostly due to the high system requirements, restrictive licensing terms, and support for Digital Rights Management, techniques that made it harder for users to
+copy protected material.
+
+
+With the arrival of Windows 7, a new and much less resource hungry version
+of the operating system, many people decided to skip Vista altogether. Windows 7
+did not introduce too many new features, but it was relatively small and quite stable. In less than three weeks, Windows 7 had obtained more market share than
+Vista in seven months. In 2012, Microsoft launched its successor, Windows 8, an
+operating system with a completely new look and feel, geared for touch screens.
+The company hopes that the new design will become the dominant operating system on a much wider variety of devices: desktops, laptops, notebooks, tablets,
+phones, and home theater PCs. So far, howev er, the market penetration is slow
+compared to Windows 7.
+
+
+The other major contender in the personal computer world is UNIX (and its
+various derivatives). UNIX is strongest on network and enterprise servers but is
+also often present on desktop computers, notebooks, tablets, and smartphones. On x86-based computers, Linux is becoming a popular alternative to Windows for students and increasingly many corporate users.
 
