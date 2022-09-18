@@ -380,7 +380,6 @@ infrequent, so this wasted time is not significant. With commercial data process
 the I/O wait time can often be 80 or 90% of the total time, so something had to be
 done to avoid having the (expensive) CPU be idle so much.
 
-
 The solution that evolved was to partition memory into several pieces, with a
 different job in each partition, as shown in Fig. 1-5. While one job was waiting for
 I/O to complete, another job could be using the CPU. If enough jobs could be held
@@ -389,6 +388,76 @@ Having multiple jobs safely in memory at once requires special hardware to prote
 each job against snooping and mischief by the other ones, but the 360 and other
 third-generation systems were equipped with this hardware.
 
+<img src="fig1-5.png">
+
+Another major feature present in third-generation operating systems was the
+ability to read jobs from cards onto the disk as soon as they were brought to the
+computer room. Then, whenever a running job finished, the operating system could
+load a new job from the disk into the now-empty partition and run it. This technique is called spooling (from Simultaneous Peripheral Operation On Line) and
+was also used for output. With spooling, the 1401s were no longer needed, and
+much carrying of tapes disappeared.
+
+Although third-generation operating systems were well suited for big scientific
+calculations and massive commercial data-processing runs, they were still basically
+batch systems. Many programmers pined for the first-generation days when they
+had the machine all to themselves for a few hours, so they could debug their programs quickly. With third-generation systems, the time between submitting a job
+and getting back the output was often several hours, so a single misplaced comma
+could cause a compilation to fail, and the programmer to waste half a day. Programmers did not like that very much.
 
 
+This desire for quick response time paved the way for timesharing, a variant
+of multiprogramming, in which each user has an online terminal. In a timesharing
+system, if 20 users are logged in and 17 of them are thinking or talking or drinking
+coffee, the CPU can be allocated in turn to the three jobs that want service. Since
+people debugging programs usually issue short commands (e.g., compile a five page procedure†) rather than long ones (e.g., sort a million-record file), the computer can provide fast, interactive service to a number of users and perhaps also
+work on big batch jobs in the background when the CPU is otherwise idle. The
+first general-purpose timesharing system, CTSS (Compatible Time Sharing System), was developed at M.I.T. on a specially modified 7094 (Corbato´ et al., 1962).
+However, timesharing did not really become popular until the necessary protection
+hardware became widespread during the third generation.
+
+
+After the success of the CTSS system, M.I.T., Bell Labs, and General Electric
+(at that time a major computer manufacturer) decided to embark on the development of a ‘‘computer utility,’’ that is, a machine that would support some hundreds of simultaneous timesharing users. Their model was the electricity system—when
+you need electric power, you just stick a plug in the wall, and within reason, as
+much power as you need will be there. The designers of this system, known as
+**MULTICS (MULTiplexed Information and Computing Service)**, envisioned
+one huge machine providing computing power for everyone in the Boston area.
+The idea that machines 10,000 times faster than their GE-645 mainframe would be
+sold (for well under $1000) by the millions only 40 years later was pure science
+fiction. Sort of like the idea of supersonic trans-Atlantic undersea trains now.
+
+MULTICS was a mixed success. It was designed to support hundreds of users
+on a machine only slightly more powerful than an Intel 386-based PC, although it
+had much more I/O capacity. This is not quite as crazy as it sounds, since in those
+days people knew how to write small, efficient programs, a skill that has subsequently been completely lost. There were many reasons that MULTICS did not
+take over the world, not the least of which is that it was written in the PL/I programming language, and the PL/I compiler was years late and barely worked at all
+when it finally arrived. In addition, MULTICS was enormously ambitious for its
+time, much like Charles Babbage’s analytical engine in the nineteenth century.
+
+
+To make a long story short, MULTICS introduced many seminal ideas into the
+computer literature, but turning it into a serious product and a major commercial
+success was a lot harder than anyone had expected. Bell Labs dropped out of the
+project, and General Electric quit the computer business altogether. Howev er,
+M.I.T. persisted and eventually got MULTICS working. It was ultimately sold as a
+commercial product by the company (Honeywell) that bought GE’s computer business and was installed by about 80 major companies and universities worldwide.
+While their numbers were small, MULTICS users were fiercely loyal. General
+Motors, Ford, and the U.S. National Security Agency, for example, shut down their
+MULTICS systems only in the late 1990s, 30 years after MULTICS was released,
+after years of trying to get Honeywell to update the hardware.
+
+
+By the end of the 20th century, the concept of a computer utility had fizzled
+out, but it may well come back in the form of **cloud computing**, in which relatively small computers (including smartphones, tablets, and the like) are connected to servers in vast and distant data centers where all the computing is done,
+with the local computer just handling the user interface. The motivation here is
+that most people do not want to administrate an increasingly complex and finicky
+computer system and would prefer to have that work done by a team of professionals, for example, people working for the company running the data center. E-commerce is already evolving in this direction, with various companies running emails
+on multiprocessor servers to which simple client machines connect, very much in
+the spirit of the MULTICS design.
+
+
+Despite its lack of commercial success, MULTICS had a huge influence on
+subsequent operating systems (especially UNIX and its derivatives, FreeBSD,
+Linux, iOS, and Android). It is described in several papers and a book (Corbato´ et
+al., 1972; Corbato´ and Vyssotsky, 1965; Daley and Dennis, 1968; Organick, 1972;
 
