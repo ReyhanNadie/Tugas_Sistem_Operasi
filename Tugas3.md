@@ -16,7 +16,7 @@ __Manajemen proses__ adalah suatu cara atau tindakan dalam membagi, mengalokasik
 
 
 __Memori manajemen__ adalah tindakan mengelola memori komputer. Kebutuhan utama manajemen memori adalah untuk menyediakan cara untuk secara dinamis mengalokasikan bagian-bagian dari memori untuk program atas permintaan mereka, dan membebaskan untuk digunakan kembali ketika tidak lagi diperlukan. Ini sangat penting untuk setiap sistem komputer canggih di mana lebih dari satu proses mungkin berlangsung setiap saat.
-### Manajemen proses pada windows dan linux :
+### Manajemen memori utama pada windows dan linux :
 #### Windows
 ![](gambar/windows1.png)
 
@@ -27,7 +27,7 @@ Grafik menunjukan penggunaan memori pada komputer yang sedang kita gunakan.
 
 ## 3. Manajemen sistem Input Output (I/O)
 
-I/O adalah suatu mekanisme pengiriman data secara bertahap dan terus menerus melalui suatu aliran data dari proses ke peranti (begitu pula sebaliknya). Fungsi I/O Pada dasarnya adalah mengimplementasikan algoritma I/O pada level aplikasi. Pada dasarnya, tugas utama komputer adalah processing dan I/O (Input danOutput). Bahkan, sebagian besar waktunya digunakan untuk mengolah I/O sedangkan processing hanya bersifat insidental. Jadi, pada konteks I/O, peranan sistem operasi adalah mengatur dan mengontrol perangkat I/O dan operasi I/O.
+I/O adalah suatu mekanisme pengiriman data secara bertahap dan terus menerus melalui suatu aliran data dari proses ke peranti (begitu pula sebaliknya). Fungsi I/O Pada dasarnya adalah mengimplementasikan algoritma I/O pada level aplikasi. Pada dasarnya, tugas utama komputer adalah processing dan I/O (Input danOutput). Bahkan sebagian besar waktunya digunakan untuk mengolah I/O sedangkan processing hanya bersifat insidental. Jadi, pada konteks I/O, peranan sistem operasi adalah mengatur dan mengontrol perangkat I/O dan operasi I/O.
 
 ### Manajemen i/o pada windows:
 #### Windows
