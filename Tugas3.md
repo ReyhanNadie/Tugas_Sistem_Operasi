@@ -32,3 +32,18 @@ I/O adalah suatu mekanisme pengiriman data secara bertahap dan terus menerus mel
 ### Manajemen i/o pada windows:
 #### Windows
 ![](gambar/windows2.PNG)
+
+## 4. Manajemen sistem berkas
+
+__Manajemen sistem berkas__ adalah sebuah metode dan struktur data yang digunakan oleh sistem operasi pada komputer untuk mengatur dan mengorganisir file yang ada pada disk atau partisi disk.
+
+### Manajemen sistem berkas pada windows dan linux :
+#### Windows
+
+![](gambar/windows3.PNG)
+
+#### Linux
+![](gambar/linux3.PNG)
+
+
+Diatas terlihat bahwa kita bisa mengatur menghapus memindahkan dan membuka file dan folder yang ada pada penyimpanan kita.
