@@ -19,10 +19,10 @@ __Memori manajemen__ adalah tindakan mengelola memori komputer. Kebutuhan utama 
 ### Manajemen memori utama pada windows dan linux :
 #### Windows
 
-![](gambar/windows1.png)
+![](https://raw.githubusercontent.com/ReyhanNadie/Tugas_Sistem_Operasi/master/gambar/windows1.PNG)
 
 #### Linux
-![](gambar/linux1.png)
+![](https://raw.githubusercontent.com/ReyhanNadie/Tugas_Sistem_Operasi/master/gambar/linux1.PNG)
 
 Grafik menunjukan penggunaan memori pada komputer yang sedang kita gunakan.
 
