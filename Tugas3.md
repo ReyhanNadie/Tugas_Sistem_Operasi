@@ -18,6 +18,7 @@ __Manajemen proses__ adalah suatu cara atau tindakan dalam membagi, mengalokasik
 __Memori manajemen__ adalah tindakan mengelola memori komputer. Kebutuhan utama manajemen memori adalah untuk menyediakan cara untuk secara dinamis mengalokasikan bagian-bagian dari memori untuk program atas permintaan mereka, dan membebaskan untuk digunakan kembali ketika tidak lagi diperlukan. Ini sangat penting untuk setiap sistem komputer canggih di mana lebih dari satu proses mungkin berlangsung setiap saat.
 ### Manajemen memori utama pada windows dan linux :
 #### Windows
+
 ![](gambar/windows1.png)
 
 #### Linux
