@@ -29,7 +29,6 @@ Grafik menunjukan penggunaan memori pada komputer yang sedang kita gunakan.
 
 I/O adalah suatu mekanisme pengiriman data secara bertahap dan terus menerus melalui suatu aliran data dari proses ke peranti (begitu pula sebaliknya). Fungsi I/O Pada dasarnya adalah mengimplementasikan algoritma I/O pada level aplikasi. Pada dasarnya, tugas utama komputer adalah processing dan I/O (Input danOutput). Bahkan, sebagian besar waktunya digunakan untuk mengolah I/O sedangkan processing hanya bersifat insidental. Jadi, pada konteks I/O, peranan sistem operasi adalah mengatur dan mengontrol perangkat I/O dan operasi I/O.
 
-### Manajemen i/o pada windows dan linux :
+### Manajemen i/o pada windows:
 #### Windows
-
-#### Linux
+![](gambar/windows2.PNG)
